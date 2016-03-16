@@ -30,19 +30,19 @@ if (isset($_SESSION["siape"])) {
     $nacional = $_POST['nacional'];
     $internacional = $_POST['internacional'];
     $id = $_POST['id'];
+    $inscricao = $_POST['valor_inscricao'];
     $total_diarias = calcular_diarias($data_inicio, $data_fim, $tipo_evento);
     $total_pontos = calcular_pontos($relevancia, $projeto, $estudando, $titulacao, $tipo_evento, $tempo_servico, $nacional, $internacional);
     $siape = $_SESSION['siape'];
 
     $sql = "UPDATE planejamento SET
-                  siape=$siape,
-                  nome_evento=$nome_evento,
-                  cidade_evento=$cidade_evento,
-                  data_inicio_evento=$data_inicio,
-                  data_fim_evento=$data_fim,
+                  nome_evento='$nome_evento',
+                  cidade_evento='$cidade_evento',
+                  data_inicio_evento='$data_inicio',
+                  data_fim_evento='$data_fim',
                   valor_passagem=$valor_passagem,
-                  justificativa_evento_relevancia=$justificativa,
-                  sitio_evento=$sitio_evento,
+                  justificativa_evento_relevancia='$justificativa',
+                  sitio_evento='$sitio_evento',
                   relevancia_evento=$relevancia,
                   projeto_institucional=$projeto,
                   estudando=$estudo,
@@ -52,16 +52,18 @@ if (isset($_SESSION["siape"])) {
                   tempo_servico=$tempo_servico,
                   tipo_evento_capacitacao=$tipo_evento,
                   total_diarias=$total_diarias,
-                  total_pontos=$total_pontos
+                  total_pontos=$total_pontos,
+                  inscricao = $inscricao
                    WHERE id = $id";
 
+   // echo $sql;
     $stmt = $con->prepare($sql);
 
     $stmt->execute();
 
     echo "<script>
           alert('Planejamento atualizado com sucesso!');
-          window.location('planejamento.php');
+          window.location='planejamento.php';
         </script>";
 
 }else{

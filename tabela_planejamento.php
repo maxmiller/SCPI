@@ -9,22 +9,27 @@
 include 'database.php';
 
 
-$sql = "select id, siape, nome_evento, cidade_evento, data_inicio_evento, data_fim_evento, valor_passagem, tipo_evento_capacitacao, total_diarias, total_pontos
-        from planejamento where siape = '$siape' ";
+$sql = "select *
+        from planejamento where siape = '$siape' order by id ";
+
 foreach ($con->query($sql) as $row) {
+    $inicio = (new DateTime($row['data_inicio_evento']))->format('d/m/Y');
+    $fim = (new DateTime($row['data_fim_evento']))->format('d/m/Y');
     echo "<tr> ";
     echo "<td>{$row['siape']}</td>";
     echo "<td>{$row['nome_evento']}</td>";
     echo "<td>{$row['cidade_evento']}</td>";
-    echo "<td>{$row['data_inicio_evento']}</td>";
-    echo "<td>{$row['data_fim_evento']}</td>";
+    echo "<td>$inicio</td>";
+    echo "<td>$fim</td>";
     echo "<td> R$ {$row['valor_passagem']}</td>";
     echo "<td>".tipo_evento($row['tipo_evento_capacitacao']) ."</td>";
     echo "<td> R$ {$row['total_diarias']}</td>";
     echo "<td> R$ {$row['inscricao']}</td>";
     echo "<td> R$ ".($row['total_diarias']+$row['valor_passagem']+$row['inscricao']). "</td>";
     echo "<td>{$row['total_pontos']}</td>";
+    echo "<td><a href='editar_planejamento.php?id={$row['id']}' ><i class='glyphicon glyphicon-edit'></i></a></td>";
     echo "<td><a href='excluir_planejamento.php?id={$row['id']}' onclick=\"return confirm('Deseja realmente exluir o planejamento?')\"><i class='glyphicon glyphicon-trash'></i></a></td>";
+
     echo "</tr> ";
 
 }
