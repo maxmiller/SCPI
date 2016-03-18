@@ -61,6 +61,6 @@ if (isset($_SESSION["siape"])) {
 } else {
     echo "<script>
         alert('Usuário não logado');
-        window.location='inicio_planejamento.php';
+        window.location='page.login.php';
         </script>";
 }

@@ -12,6 +12,8 @@ include 'auxiliar.php';
 
 session_start();
 
+print_r($_POST);
+/*
 if (isset($_SESSION["siape"])) {
     $nome_evento = $_POST['nome_evento'];
     $cidade_evento = $_POST['cidade_evento'];
@@ -28,7 +30,7 @@ if (isset($_SESSION["siape"])) {
     $tempo_servico = $_POST['tempo_servico'];
     $nacional = $_POST['nacional'];
     $internacional = $_POST['internacional'];
-    $inscricao= $_POST['inscricao'];
+    $inscricao= $_POST['valor_inscricao'];
 
     $total_diarias = calcular_diarias($data_inicio, $data_fim, $tipo_evento);
     $total_pontos = calcular_pontos($relevancia, $projeto, $estudando, $titulacao, $tipo_evento, $tempo_servico, $nacional, $internacional);
@@ -40,19 +42,18 @@ if (isset($_SESSION["siape"])) {
               VALUES ('$siape','$nome_evento','$cidade_evento','$data_inicio','$data_fim',$valor_passagem,'$justificativa',
               '$sitio_evento',$relevancia,$estudo,$projeto, $nacional,$internacional,$titulacao,$tempo_servico,$tipo_evento,$total_diarias,$total_pontos,$inscricao)";
     $stmt = $con->prepare($sql);
-
+    echo $sql;
     $stmt->execute();
 
     echo "<script>
-         window.location('planejamento.php');
+         window.location='page.planejamento.principal.php';
         </script>";
 } else {
     echo "<script>
         alert('Usuário não logado');
-        window.location('inicio_planejamento.php');
-        </script>";
+        window.location(page.login.php  </script>";
 }
-
+*/
 
 
 ?>

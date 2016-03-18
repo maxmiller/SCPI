@@ -1,3 +1,7 @@
+<?php
+    include_once 'script.sessao.php';
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -48,13 +52,23 @@
                 <!-- Collect the nav links, forms, and other content for toggling -->
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                     <ul class="nav navbar-nav">
-                        <li> <a href="inicio_planejamento.php">Planejamento Diárias e Passagens 2016</a></li>
+                        <li> <a href="page.login.php">Planejamento Diárias e Passagens 2016</a></li>
                         <li>
                             <a href="#">Solicitação de Materiais</a>
                         </li>
                         <li>
                             <a href="#">Portal de Eventos</a>
                         </li>
+
+                        <?php
+                       
+                            if($siape!=null){
+                                echo "  <li>
+                            <a href='script.logout.php' >Sair</a>
+                        </li>";
+                            }
+                        ?>
+
                     </ul>
                 </div>
                 <!-- /.navbar-collapse -->

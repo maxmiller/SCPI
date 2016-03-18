@@ -10,7 +10,6 @@ include 'database.php';
 include 'ldap.php';
 
 session_start();
-
 $siape = $_POST['siape'];
 $password = $_POST['senha'];
 
@@ -22,13 +21,13 @@ if(conectarLDAP($siape,$password) == true){
     $stmt->execute();
     $_SESSION['siape'] = $siape;
     echo "<script>
-            window.location='planejamento.php';
+            window.location='page.planejamento.principal.php';
         </script>";
- //   header('location:planejamento.php');
+ //   header('location:page.planejamento.principal.php');
 }else{
     echo "<script>
             alert('Siape/Senha incorretos!');
-            window.location='inicio_planejamento.php';
+            window.location='page.login.php';
         </script>";
 
 }

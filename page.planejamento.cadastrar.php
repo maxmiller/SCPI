@@ -4,19 +4,19 @@ session_start();
 if (!isset($_SESSION["siape"])) {
     echo "<script>
         alert('Usuário não logado');
-        window.location=('inicio_planejamento.php');
-        </script>";
+        window.location=(ppage.login.php </script>";
 } else {
     include 'topo.php';
 
     ?>
 
-    <form method="post" action="cadastrar_planejamento.php">
+    <form method="post" action="script.planejamento.cadastrar.php">
         <h2 class="form-planejamento-heading">Planejamento 2016</h2>
 
         <div class="row form-group">
             <div class="form-group col-md-8">
                 <label for="inputNome">Nome do Evento:</label>
+                <input type="hidden" name="siape" class="form-control" value="<?php echo $siape ?>"/>
                 <input type="text" name="nome_evento" class="form-control" id="inputNome" placeholder="Nome" required
                        autofocus/>
             </div>
@@ -38,13 +38,13 @@ if (!isset($_SESSION["siape"])) {
             <div class="form-group col-md-6">
 
                 <label for="inputPassword">Data estimada de inicio do evento</label>
-                <input type="date" name="data_inicio" class="form-control" placeholder="Data de Inicio" required/>
+                <input type="date" name="data_inicio_evento" class="form-control" placeholder="Data de Inicio" required/>
 
 
             </div>
             <div class="form-group col-md-6">
                 <label for="inputPassword">Data estimada de término do evento</label>
-                <input type="date" name="data_fim" class="form-control" placeholder="Data de Fim" required/>
+                <input type="date" name="data_fim_evento" class="form-control" placeholder="Data de Fim" required/>
 
             </div>
         </div>
@@ -61,7 +61,7 @@ if (!isset($_SESSION["siape"])) {
             <div class="form-group col-md-6">
 
                 <label for="inputPassword">Valor da inscrição</label>
-                <input type="number" name="valor_inscricao" class="form-control"
+                <input type="number" name="inscricao" class="form-control"
                        placeholder="Estimativa de valor de inscrição"
                        />
 
@@ -71,7 +71,7 @@ if (!isset($_SESSION["siape"])) {
         <div class="row form-group">
             <div class="form-group col-md-12">
                 <label for="inputPassword">Justificativa de participação do evento/capacitação</label>
-                <textarea name="justificativa" class="form-control" rows="3"> </textarea>
+                <textarea name="justificativa_evento_relevancia" class="form-control" rows="3"> </textarea>
 
             </div>
 
@@ -80,8 +80,8 @@ if (!isset($_SESSION["siape"])) {
         <div class="row form-group">
             <div class="form-group col-md-12">
                 <label for="inputPassword">Site do evento</label>
-                <input type="text" name="sitio" class="form-control"
-                       placeholder="Site do evento caso já exista."
+                <input name="sitio_evento" class="form-control"
+                       placeholder="Site do evento caso já exista." type="url" pattern="https?://.+"
                 />
 
             </div>
@@ -91,14 +91,14 @@ if (!isset($_SESSION["siape"])) {
         <div class="row form-group">
             <div class="form-group col-md-6">
                 <label>Relevância do Evento para área de atuação docente:</label>
-                <select name="relevancia" class="form-control">
+                <select name="relevancia_evento" class="form-control">
                     <option value="0">Não</option>
                     <option value="1">Sim</option>
                 </select>
             </div>
             <div class="form-group col-md-6">
                 <label>Possui projetos institucionais(pesquisa, extensão, etc..):</label>
-                <select name="projetos" class="form-control">
+                <select name="projeto_institucional" class="form-control">
                     <option value="0">Não</option>
                     <option value="1">Sim</option>
                 </select>
@@ -108,7 +108,7 @@ if (!isset($_SESSION["siape"])) {
         <div class="row form-group">
             <div class="form-group col-md-6">
                 <label>Esta estudando?</label>
-                <select name="estudo" class="form-control">
+                <select name="estudando" class="form-control">
                     <option value="0">Não</option>
                     <option value="1">Sim</option>
                 </select>
@@ -126,7 +126,7 @@ if (!isset($_SESSION["siape"])) {
         <div class="row form-group">
             <div class="form-group col-md-6">
                 <label> Tipo de evento/capacitação</label>
-                <select name="tipo_evento" class="form-control">
+                <select name="tipo_evento_capacitacao" class="form-control">
                     <option value="0">CONNEPI & CONGIC</option>
                     <option value="1">Eventos Internacionais sediados no Brasil</option>
                     <option value="2">Eventos Nacionais sediados no Nordeste</option>
@@ -151,13 +151,13 @@ if (!isset($_SESSION["siape"])) {
         <div class="row form-group">
             <div class="form-group col-md-6">
                 <label> Eventos/Capacitações nacionais:</label>
-                <input type="number" name="nacional" class="form-control"
+                <input type="number" name="numero_evento_nacional" class="form-control"
                        placeholder="Quantidade de eventos/capacitações financiados pelo IFRN em 2014 e 2015"
                        required/>
             </div>
             <div class="form-group col-md-6">
                 <label> Eventos/Capacitações internacionais:</label>
-                <input type="number" name="internacional" class="form-control"
+                <input type="number" name="numero_evento_internacional" class="form-control"
                        placeholder="Quantidade de eventos/capacitações financiados pelo IFRN em 2014 e 2015"
                        required/>
             </div>
@@ -171,6 +171,9 @@ if (!isset($_SESSION["siape"])) {
     </form>
 
 
+    <script>
+
+    </script>
     <?php
 
     include 'base.php';

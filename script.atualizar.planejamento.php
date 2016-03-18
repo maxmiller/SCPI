@@ -63,12 +63,11 @@ if (isset($_SESSION["siape"])) {
 
     echo "<script>
           alert('Planejamento atualizado com sucesso!');
-          window.location='planejamento.php';
+          window.location='page.planejamento.principal.php';
         </script>";
 
 }else{
     echo "<script>
         alert('Usuário não logado');
-        window.location('inicio_planejamento.php');
-        </script>";
+        window.location(page.login.php  </script>";
 }

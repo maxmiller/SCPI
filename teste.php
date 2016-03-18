@@ -6,7 +6,7 @@
  * Time: 17:15
  */
 
-$ldaphost = "10.150.0.155";  // your ldap servers
+/*$ldaphost = "10.150.0.155";  // your ldap servers
 $ldapport = 389;                 // your ldap server's port number
 
 $ldaprdn = "IFRN\\1935921";     // ldap rdn or dn
@@ -38,4 +38,26 @@ if ($ldapconn) {
         echo "não conectado";
     }
 
+}*/
+
+include 'class.planejamentodao.php';
+
+use IFRN\PlanejamentoDao;
+
+try {
+    $dao = new PlanejamentoDao();
+    //print_r($dao->findAll());
+    foreach ($dao->findAll() as $row){
+        $teste = new \IFRN\Planejamento($row);
+        print_r($teste);
+      //  var_dump($row);
+     //  echo $row->getSiape();
+        //print_r($row);
+        echo '<br/>';
+    }
+    echo "OK";
+}catch(Exception $e){
+    echo $e->getMessage();
 }
+
+?>

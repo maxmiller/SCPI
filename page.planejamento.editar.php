@@ -1,12 +1,12 @@
 <?php
 
-include 'buscar_planejamento.php';
+include 'script.planejamento.buscar.php';
 include 'topo.php';
 
 
 ?>
 
-<form method="post" action="atualizar_planejamento.php">
+<form method="post" action="script.atualizar.planejamento.php">
     <h2 class="form-planejamento-heading">Planejamento 2016</h2>
 
     <div class="row form-group">

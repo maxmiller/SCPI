@@ -4,7 +4,7 @@ include 'topo.php';
 
 ?>
 
-<form class="form-signin" method="post" action="login_planejamento.php" enctype="application/x-www-form-urlencoded" >
+<form class="form-signin" method="post" action="script.login.php" enctype="application/x-www-form-urlencoded" >
     <h2 class="form-signin-heading">Planejamento 2016</h2>
     <label for="inputEmail" class="sr-only">SIAPE</label>
     <input type="text" name="siape" class="form-control" placeholder="SIAPE" required autofocus/>

@@ -1,14 +1,14 @@
 <?php
-session_start();
+
+include 'topo.php';
 
 if (!isset($_SESSION["siape"])) {
     echo "<script>
         alert('Usuário não logado');
-        window.location=('inicio_planejamento.php');
-        </script>";
+        window.location=(ppage.login.php </script>";
 }
 $siape = $_SESSION['siape'];
-include 'topo.php';
+
 
 
 ?>
@@ -33,11 +33,11 @@ include 'topo.php';
         </tr>
     </thead>
     <tbody>
-        <?php include 'tabela_planejamento.php'; ?>
+        <?php include 'script.tabela.planejamento.php'; ?>
     </tbody>
 </table>
 
-<a class="btn btn-primary btn-lg" href="novo_planejamento.php"> Cadastrar Planejamento de Diárias e Passagens</a>
+<a class="btn btn-primary btn-lg" href="page.planejamento.cadastrar.php"> Cadastrar Planejamento de Diárias e Passagens</a>
 
 
 <?php
