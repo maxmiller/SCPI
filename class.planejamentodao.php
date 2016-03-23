@@ -30,18 +30,7 @@ class PlanejamentoDao extends Dao
       //  echo $sql;
     }
 
-    private function sqlGenerate($array){
-        $sql_values="";
-        if($array!=null){
-            foreach ($array as $k=> $v) {
-                if($k != "id") {
-                    $sql_values .= "$k = '$v' ,";
-                }
-            }
-        }
-        $sql_values= substr($sql_values,0,strlen($sql_values)-1);
-        return $sql_values;
-    }
+  
 
     function update($object)
     {

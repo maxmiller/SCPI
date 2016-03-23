@@ -9,7 +9,7 @@
 $host = 'localhost';
 $database = 'copeinca';
 $user = 'copeinca';
-$password = '@#2kC57JfhL9osU!';
+$password = '@#DOAKCjF3mp7EQ!';
 $con = null;
 
 try {
