@@ -1,21 +1,35 @@
 <?php
+session_start();
+//include 'script.planejamento.buscar.php';
 
-include 'script.planejamento.buscar.php';
-include 'topo.php';
 
+require_once 'class.planejamentodao.php';
 
+if (!isset($_SESSION["siape"])) {
+    echo "<script>
+        alert('Usuário não logado');
+        window.location=(ppage.login.php </script>";
+} else {
+    $dao = new \IFRN\PlanejamentoDao();
+    $planejamento = new \IFRN\Planejamento($dao->findById($_GET['id']));
+   
+    include 'topo.php';
+    include 'page.planejamento.base.php';
+    include 'base.php';
+}
 ?>
 
-<form method="post" action="script.atualizar.planejamento.php">
+
+<!--<form method="post" action="script.atualizar.planejamento.php">
     <h2 class="form-planejamento-heading">Planejamento 2016</h2>
 
     <div class="row form-group">
         <div class="form-group col-md-8">
             <label for="inputNome">Nome do Evento:</label>
             <input type="hidden" name="id" class="form-control" id="inputNome" placeholder="Nome"
-                   value="<?php echo $id; ?>"/>
+                   value="<?php /*echo $id; */ ?>"/>
             <input type="text" name="nome_evento" class="form-control" id="inputNome" placeholder="Nome" required
-                   value="<?php echo $nome_evento; ?>"
+                   value="<?php /*echo $nome_evento; */ ?>"
                    autofocus/>
         </div>
         <div class="form-group col-md-4"></div>
@@ -26,7 +40,7 @@ include 'topo.php';
 
             <label for="inputPassword">Cidade do Evento:</label>
             <input type="text" name="cidade_evento" class="form-control" placeholder="Cidade/UF/Pais" required
-                   value="<?php echo $cidade_evento; ?>"/>
+                   value="<?php /*echo $cidade_evento; */ ?>"/>
         </div>
 
         <div class="form-group col-md-4"></div>
@@ -38,14 +52,14 @@ include 'topo.php';
 
             <label for="inputPassword">Data estimada de inicio do evento</label>
             <input type="date" name="data_inicio" class="form-control" placeholder="Data de Inicio" required
-                   value="<?php echo $data_inicio; ?>"/>
+                   value="<?php /*echo $data_inicio; */ ?>"/>
 
 
         </div>
         <div class="form-group col-md-6">
             <label for="inputPassword">Data estimada de término do evento</label>
             <input type="date" name="data_fim" class="form-control" placeholder="Data de Fim" required
-                   value="<?php echo $data_fim; ?>"/>
+                   value="<?php /*echo $data_fim; */ ?>"/>
 
         </div>
     </div>
@@ -55,14 +69,14 @@ include 'topo.php';
             <label for="inputPassword">Valor da passagem área</label>
             <input type="number" name="valor_passagem" class="form-control"
                    placeholder="Estimativa de valor de passagem"
-                   required value="<?php echo $valor_passagem; ?>"/>
+                   required value="<?php /*echo $valor_passagem; */ ?>"/>
 
 
         </div>
         <div class="form-group col-md-6">
             <label for="inputPassword">Valor da inscrição</label>
             <input type="number" name="valor_inscricao" class="form-control"
-                   placeholder="Estimativa de valor de inscrição" value="<?php echo $inscricao; ?>"
+                   placeholder="Estimativa de valor de inscrição" value="<?php /*echo $inscricao; */ ?>"
             />
 
 
@@ -71,7 +85,7 @@ include 'topo.php';
     <div class="row form-group">
         <div class="form-group col-md-12">
             <label for="inputPassword">Justificativa de participação do evento/capacitação</label>
-            <textarea name="justificativa" class="form-control" rows="3"> <?php echo $justificativa; ?> </textarea>
+            <textarea name="justificativa" class="form-control" rows="3"> <?php /*echo $justificativa; */ ?> </textarea>
 
         </div>
 
@@ -81,7 +95,7 @@ include 'topo.php';
         <div class="form-group col-md-12">
             <label for="inputPassword">Site do evento</label>
             <input type="text" name="sitio" class="form-control"
-                   placeholder="Site do evento caso já exista." value="<?php echo $sitio_evento; ?>"
+                   placeholder="Site do evento caso já exista." value="<?php /*echo $sitio_evento; */ ?>"
             />
 
         </div>
@@ -144,7 +158,7 @@ include 'topo.php';
             <label> Tempo de serviço no Campus Caicó</label>
             <input type="number" name="tempo_servico" class="form-control"
                    placeholder="Tempo de serviço em semestres"
-                   required value="<?php echo $tempo_servico; ?>"/>
+                   required value="<?php /*echo $tempo_servico; */ ?>"/>
         </div>
     </div>
 
@@ -153,13 +167,13 @@ include 'topo.php';
             <label> Eventos/Capacitações nacionais:</label>
             <input type="number" name="nacional" class="form-control"
                    placeholder="Quantidade de eventos/capacitações financiados pelo IFRN em 2014 e 2015"
-                   required value="<?php echo $nacional; ?>"/>
+                   required value="<?php /*echo $nacional; */ ?>"/>
         </div>
         <div class="form-group col-md-6">
             <label> Eventos/Capacitações internacionais:</label>
             <input type="number" name="internacional" class="form-control"
                    placeholder="Quantidade de eventos/capacitações financiados pelo IFRN em 2014 e 2015"
-                   required value="<?php echo $internacional; ?>"/>
+                   required value="<?php /*echo $internacional; */ ?>"/>
         </div>
     </div>
     <div class="row form-group">
@@ -173,19 +187,13 @@ include 'topo.php';
 <script>
     $(document).ready(function () {
 
-        $("#relevancia").val(<?php echo $relevancia; ?>).trigger('chosen:updated');
-        $("#estudo").val(<?php echo $estudo; ?>).trigger('chosen:updated');
-        $("#titulacao").val(<?php echo $titulacao; ?>).trigger('chosen:updated');
-        $("#projeto").val(<?php echo $projeto; ?>).trigger('chosen:updated');
-        $("#tipo_evento").val(<?php echo $tipo_evento; ?>).trigger('chosen:updated');
+        $("#relevancia").val(<?php /*echo $relevancia; */ ?>).trigger('chosen:updated');
+        $("#estudo").val(<?php /*echo $estudo; */ ?>).trigger('chosen:updated');
+        $("#titulacao").val(<?php /*echo $titulacao; */ ?>).trigger('chosen:updated');
+        $("#projeto").val(<?php /*echo $projeto; */ ?>).trigger('chosen:updated');
+        $("#tipo_evento").val(<?php /*echo $tipo_evento; */ ?>).trigger('chosen:updated');
 
 
     })
 
-</script>
-
-
-<?php
-include 'base.php';
-
-?>
+</script>-->

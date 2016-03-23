@@ -16,6 +16,7 @@ $siape = $_SESSION['siape'];
 <table class="table table-striped">
     <thead>
         <tr>
+            <th>P.</th>
             <th>SIAPE</th>
             <th>EVENTO</th>
             <th>LOCAL DO EVENTO</th>
@@ -37,7 +38,7 @@ $siape = $_SESSION['siape'];
     </tbody>
 </table>
 
-<a class="btn btn-primary btn-lg" href="page.planejamento.cadastrar.php"> Cadastrar Planejamento de Diárias e Passagens</a>
+<a class=" btn btn-primary btn-lg" href="page.planejamento.cadastrar.php"> Cadastrar Planejamento de Diárias e Passagens</a>
 
 
 <?php

@@ -20,50 +20,58 @@ class PlanejamentoDao extends Dao
     {
 
         $data = $this->sqlGenerate($object);
-        $sql = "INSERT INTO PLANEJAMENTO( {$data[0]}) SET {$data[1]}";
+        $sql = "INSERT INTO planejamento SET {$data}";
         try {
             $stmt = Conexao::getInstance()->prepare($sql);
-            $i = 1;
-            foreach ($object as $k=>$v){
-                $stmt->bindParam($i,$v);
-                $i++;
-            }
-
             $stmt->execute();
         } catch (PDOException $e) {
-            echo $e->getMessage();
+            throw $e;
         }
+      //  echo $sql;
     }
 
     private function sqlGenerate($array){
-        $sql_column="";
         $sql_values="";
         if($array!=null){
             foreach ($array as $k=> $v) {
-                $sql_column.="$k,";
-                $sql_values.= "$k = ? ,";
+                if($k != "id") {
+                    $sql_values .= "$k = '$v' ,";
+                }
             }
         }
-        $sql_column = substr($sql_column,0,strlen($sql_column)-1);
         $sql_values= substr($sql_values,0,strlen($sql_values)-1);
-        $data[0]=$sql_column;
-        $data[1]=$sql_values;
-        return $data;
+        return $sql_values;
     }
+
     function update($object)
     {
-        // TODO: Implement update() method.
+        $data = $this->sqlGenerate($object);
+        $sql = "UPDATE planejamento SET {$data} where id = {$object['id']}";
+
+      //  echo $sql;
+        try {
+            $stmt = Conexao::getInstance()->prepare($sql);
+            $stmt->execute();
+        } catch (PDOException $e) {
+            throw $e;
+        }
     }
 
     function delete($object)
     {
-        // TODO: Implement delete() method.
+        try {
+            $sql = "delete from planejamento where id = $object";
+            $stmt = Conexao::getInstance()->prepare($sql);
+            $stmt->execute();
+        }catch (PDOException $e){
+           throw $e;
+        }
     }
 
     function findById($id)
     {
         $stmt = Conexao::getInstance()->prepare('
-            SELECT "Planejamento", planejamento.*
+            SELECT planejamento.*
              FROM planejamento
              WHERE id = :id
         ');
@@ -71,7 +79,7 @@ class PlanejamentoDao extends Dao
         $stmt->execute();
 
 
-        $stmt->setFetchMode(PDO::FETCH_CLASS, Planejamento::class);
+        $stmt->setFetchMode(PDO::FETCH_CLASS, 'Planejamento');
         return $stmt->fetch();
     }
 
@@ -92,7 +100,7 @@ class PlanejamentoDao extends Dao
         $stmt = Conexao::getInstance()->prepare('
             SELECT planejamento.*
              FROM planejamento
-             WHERE siape = :siape
+             WHERE siape = :siape order by prioridade, siape
         ');
         $stmt->bindParam(':siape', $siape);
         $stmt->execute();

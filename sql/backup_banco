@@ -1,0 +1,213 @@
+-- phpMyAdmin SQL Dump
+-- version 2.11.8.1deb5+lenny9
+-- http://www.phpmyadmin.net
+--
+-- Servidor: localhost
+-- Tempo de Geração: Mar 21, 2016 as 07:13 AM
+-- Versão do Servidor: 5.0.51
+-- Versão do PHP: 5.2.6-1+lenny13
+
+SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
+
+--
+-- Banco de Dados: `copeinca`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `login_sistema`
+--
+
+CREATE TABLE IF NOT EXISTS `login_sistema` (
+  `id` int(11) NOT NULL auto_increment,
+  `siape` varchar(7) NOT NULL,
+  `data_login` timestamp NOT NULL default CURRENT_TIMESTAMP,
+  PRIMARY KEY  (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=75 ;
+
+--
+-- Extraindo dados da tabela `login_sistema`
+--
+
+INSERT INTO `login_sistema` (`id`, `siape`, `data_login`) VALUES
+(1, '1935921', '2016-03-10 15:17:40'),
+(2, '2025504', '2016-03-11 08:11:20'),
+(3, '2025504', '2016-03-11 08:15:29'),
+(4, '1836860', '2016-03-11 08:15:45'),
+(5, '2055569', '2016-03-11 08:16:00'),
+(6, '1673019', '2016-03-11 08:22:44'),
+(7, '1962001', '2016-03-11 08:29:24'),
+(8, '1645707', '2016-03-11 08:46:53'),
+(9, '1673019', '2016-03-11 08:57:55'),
+(10, '1046185', '2016-03-11 09:05:13'),
+(11, '1200329', '2016-03-11 12:12:17'),
+(12, '2278916', '2016-03-12 11:39:46'),
+(13, '1940119', '2016-03-13 10:51:09'),
+(14, '1453548', '2016-03-13 14:42:34'),
+(15, '1453548', '2016-03-14 07:22:50'),
+(16, '1918984', '2016-03-14 07:23:31'),
+(17, '1688264', '2016-03-14 07:23:55'),
+(18, '2265824', '2016-03-14 08:35:06'),
+(19, '2265824', '2016-03-14 08:44:58'),
+(20, '2278916', '2016-03-14 18:08:03'),
+(21, '2167061', '2016-03-14 20:23:05'),
+(22, '1940119', '2016-03-15 09:58:59'),
+(23, '1583768', '2016-03-15 14:32:32'),
+(24, '2055569', '2016-03-15 21:56:09'),
+(25, '1935921', '2016-03-16 17:42:33'),
+(26, '1935921', '2016-03-16 18:06:01'),
+(27, '2025504', '2016-03-17 07:10:24'),
+(28, '2025504', '2016-03-17 07:44:07'),
+(29, '2025504', '2016-03-17 07:48:24'),
+(30, '2025504', '2016-03-17 07:57:09'),
+(31, '2025504', '2016-03-17 07:57:22'),
+(32, '2025504', '2016-03-17 08:35:37'),
+(33, '2025504', '2016-03-17 08:40:31'),
+(34, '1935921', '2016-03-17 08:47:34'),
+(35, '2025504', '2016-03-17 08:49:25'),
+(36, '1200329', '2016-03-17 10:15:45'),
+(37, '1200329', '2016-03-17 10:21:37'),
+(38, '1996988', '2016-03-17 12:55:18'),
+(39, '1888388', '2016-03-17 15:11:53'),
+(40, '1957598', '2016-03-17 15:27:30'),
+(41, '2152373', '2016-03-17 15:35:46'),
+(42, '2043886', '2016-03-17 16:23:28'),
+(43, '1996988', '2016-03-17 17:03:02'),
+(44, '2265824', '2016-03-18 07:12:49'),
+(45, '1996988', '2016-03-18 07:27:51'),
+(46, '2055569', '2016-03-18 07:43:12'),
+(47, '1956341', '2016-03-18 09:34:26'),
+(48, '1956341', '2016-03-18 09:43:01'),
+(49, '2152373', '2016-03-18 10:20:43'),
+(50, '2072657', '2016-03-18 10:32:41'),
+(51, '1956341', '2016-03-18 11:41:43'),
+(52, '2265824', '2016-03-18 12:15:51'),
+(53, '1956341', '2016-03-18 12:17:51'),
+(54, '1956341', '2016-03-18 12:30:48'),
+(55, '1956341', '2016-03-18 12:31:49'),
+(56, '1957598', '2016-03-18 14:17:04'),
+(57, '1045649', '2016-03-18 14:49:41'),
+(58, '1694728', '2016-03-18 14:52:39'),
+(59, '1857698', '2016-03-18 15:59:17'),
+(60, '1694728', '2016-03-18 16:09:38'),
+(61, '1583768', '2016-03-18 16:10:39'),
+(62, '2265824', '2016-03-18 17:32:20'),
+(63, '2152373', '2016-03-18 17:41:15'),
+(64, '1962001', '2016-03-18 17:46:07'),
+(65, '1045649', '2016-03-18 17:47:13'),
+(66, '1045649', '2016-03-18 17:55:21'),
+(67, '1956341', '2016-03-18 18:52:40'),
+(68, '1691794', '2016-03-19 22:11:39'),
+(69, '2133235', '2016-03-20 21:02:11'),
+(70, '1691794', '2016-03-20 21:16:20'),
+(71, '1734433', '2016-03-20 21:17:49'),
+(72, '1734433', '2016-03-20 21:21:53'),
+(73, '1734433', '2016-03-20 22:31:13'),
+(74, '1812228', '2016-03-21 01:16:26');
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `planejamento`
+--
+
+CREATE TABLE IF NOT EXISTS `planejamento` (
+  `id` int(11) NOT NULL auto_increment,
+  `siape` varchar(7) NOT NULL,
+  `nome_evento` varchar(2000) NOT NULL,
+  `cidade_evento` varchar(1000) NOT NULL,
+  `data_inicio_evento` date NOT NULL,
+  `data_fim_evento` date NOT NULL,
+  `valor_passagem` decimal(10,0) default NULL,
+  `justificativa_evento_relevancia` varchar(5000) NOT NULL,
+  `sitio_evento` varchar(2000) default NULL,
+  `relevancia_evento` int(11) NOT NULL,
+  `projeto_institucional` int(11) NOT NULL,
+  `estudando` int(11) NOT NULL,
+  `numero_evento_nacional` int(11) NOT NULL,
+  `numero_evento_internacional` int(11) NOT NULL,
+  `titulacao` int(11) NOT NULL,
+  `tempo_servico` int(11) NOT NULL,
+  `tipo_evento_capacitacao` int(11) NOT NULL,
+  `data_cadastro` timestamp NOT NULL default CURRENT_TIMESTAMP,
+  `inscricao` decimal(10,0) default '0',
+  `total_diarias` decimal(10,0) default NULL,
+  `total_pontos` decimal(10,0) default NULL,
+  PRIMARY KEY  (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=41 ;
+
+--
+-- Extraindo dados da tabela `planejamento`
+--
+
+INSERT INTO `planejamento` (`id`, `siape`, `nome_evento`, `cidade_evento`, `data_inicio_evento`, `data_fim_evento`, `valor_passagem`, `justificativa_evento_relevancia`, `sitio_evento`, `relevancia_evento`, `projeto_institucional`, `estudando`, `numero_evento_nacional`, `numero_evento_internacional`, `titulacao`, `tempo_servico`, `tipo_evento_capacitacao`, `data_cadastro`, `inscricao`, `total_diarias`, `total_pontos`) VALUES
+(4, '2055569', 'SimpÃ³sio Brasileiro de Sistemas ElÃ©tricos', 'Natal-RN-Brasil', '2016-05-22', '2016-05-25', 0, '  Durante o evento serÃ¡ apresentado o trabalho "ProteÃ§Ã£o Adaptativa de Sobrecorrente em Sistemas de DistribuiÃ§Ã£o Baseado em Algoritmos GenÃ©ticos" em sessÃ£o oral. ', 'http://2016.sbse.org.br/', 1, 1, 1, 1, 0, 1, 5, 2, '2016-03-11 08:34:19', 700, 735, 82),
+(5, '1962001', 'LEGISLAÃ‡ÃƒO DE PESSOAL', 'Salvador/BA/Brasil', '2016-05-16', '2016-05-20', 600, ' Este curso busca capacitar os servidores pÃºblicos federais quanto Ã s melhores interpretaÃ§Ãµes da Lei 8112/90 e legislaÃ§Ã£o e normas posteriores, com objetivo de adotar as melhores prÃ¡ticas na gestÃ£o de pessoas. ', 'http://www.esaf.fazenda.gov.br/acesso-a-informacao/centros-regionais/bahia/outras-informacoes-tutoriais-programacao-e-editais', 1, 0, 0, 1, 0, 1, 4, 7, '2016-03-11 08:34:42', 750, 945, 70),
+(7, '1645707', '2 ENAPPE', 'Natal/RN/Brasil', '0000-00-00', '0000-00-00', 400, 'AprovaÃ§Ã£o de trabalho.', 'http://www.2enappe.ce.ufrn.br/enappe/', 1, 1, 1, 1, 0, 0, 9, 2, '2016-03-11 08:53:04', 0, 105, 89),
+(8, '1673019', 'GestÃ£o e FiscalizaÃ§Ã£o de Contratos, Conta Vinculada e Encerramento dos Contratos', 'SÃ£o Paulo/SP', '0000-00-00', '0000-00-00', 920, 'Proporcionar amplo conhecimento das normas que regem os contratos administrativos bem como suas peculiaridades, em especial, questÃµes sobre Conta Vinculada e Encerramento de Contratos.', 'www.consultre.com.br', 0, 0, 0, 0, 0, 1, 14, 7, '2016-03-11 09:09:15', 0, 315, 65),
+(9, '1453548', 'CARLOS EUGÃŠNIO DE FARIA', 'SAO LUIZ / MARANHÃƒO / BRASIL', '2016-07-24', '2016-07-30', 1200, ' Ã‰ um evento que reÃºne os mais importantes geÃ³grafos do  Brasil e do mundo e discute o que hÃ¡ de mais atual na Geografia....', 'www.eng.com.br', 1, 0, 0, 0, 0, 1, 6, 3, '2016-03-13 15:06:02', 0, 1365, 68),
+(10, '1688264', 'FEBRATEX', 'Blumenau / Santa Catarina', '2016-08-09', '2016-08-12', 0, ' Ãˆ a maior feira da America do Sul quanto as novas tecnologias da cadeia tÃªxtil , confecÃ§Ãµes e Moda. Teremos contatos jÃ¡ agendado junto as empresas para parcerias com nossa instituiÃ§Ã£o quanto a doaÃ§Ãµes de equipamentos, produtos e tecidos especiais .', 'www.febratex.com.br', 1, 0, 0, 4, 0, 0, 36, 1, '2016-03-14 07:32:20', 0, 3500, 73),
+(11, '1918984', 'Febratex - Feira Brasileira para a IndÃºstria TÃªxtil', 'Blumenau/Santa Catarina/Brasil', '2016-08-09', '2016-08-12', 1500, 'Evento TÃªxtil de maior relevÃ¢ncia no Brasil, acontecendo de 2 em 2 anos, com o que existe de mais moderno na Ã¡rea  tÃªxtil. AlÃ©m dos equipamentos apresenta palestras com assuntos ligados Ã  Ã¡rea\r\nComo tÃ©cnico de laboratÃ³rio e participando da elaboraÃ§Ã£o de especificaÃ§Ã£o para aquisiÃ§Ã£o de equipamentos para os nossos laboratÃ³rios, preciso me manter atualizado.\r\n', 'http://www.febratex.com.br', 1, 1, 1, 2, 0, 1, 49, 3, '2016-03-14 07:33:40', 0, 735, 78),
+(12, '2265824', 'FEBRATEX', 'Blumenau/ Santa Catarina / Brasil', '2016-08-09', '2016-08-12', 950, '        Ã‰ a maior feira da AmÃ©rica do Sul para o mercado tÃªxtil. Ã‰ apresentado todas as novidades em equipamentos, produtos quÃ­micos e processos ligados a indÃºstria tÃªxtil. Possui palestras sobre  novas tecnologias e pesquisas de mercado. Ã‰ uma excelente oportunidade de atualizaÃ§Ã£o de conhecimentos da Ã¡rea tÃªxtil.       ', 'www.febratex.com.br', 1, 0, 0, 0, 0, 0, 113, 3, '2016-03-14 08:44:02', 0, 735, 88),
+(13, '2278916', '3Âº Congresso Internacional de Moda e Design', 'Buenos Aires / Argentina', '2016-05-09', '2016-05-12', 1374, 'Artigo aprovado para apresentaÃ§Ã£o oral, alÃ©m de ser o maior evento cientÃ­fico na Ã¡rea de interesse (moda).', 'http://www.design.uminho.pt/cimode2016/pt-PT/', 1, 1, 0, 0, 0, 1, 0, 4, '2016-03-14 18:13:04', 0, 735, 51),
+(14, '2167061', 'VII Congresso Paraibano de Odontologia', 'JoÃ£o Pessoa / PB / Brasil', '2016-08-25', '2016-08-27', 0, ' A participaÃ§Ã£o nesse evento justifica-se diante da necessidade de aperfeiÃ§oamento constante, bem como ser uma oportunidade importante para fomentar novos conhecimentos em minha Ã¡rea de atuaÃ§Ã£o. ', '', 0, 0, 0, 1, 0, 1, 3, 2, '2016-03-14 20:45:47', 0, 525, 52),
+(15, '1940119', 'FEBRATEX - Feira Brasileira para a IndÃºstria TÃªxtil', 'Blumenau - Sc', '2016-08-09', '2016-08-12', 1100, ' Evento realizado a cada 2 anos, onde se reuni as principais industrias, fornecedores, marcas da industria tÃªxtil e de vestuÃ¡rio.', 'http://www.febratex.com.br/inicio', 1, 0, 0, 0, 0, 1, 4, 1, '2016-03-15 10:02:14', 0, 3500, 65),
+(16, '1935921', 'CSBC 2016', 'Florianopolis - SC', '2016-07-04', '2016-07-07', 1200, ' O maior evento da Ã¡rea da computaÃ§Ã£o, reunindo mais de 10 subeventos! Incluindo o 3Â° ENCompIF - Encontro Nacional de ComputaÃ§Ã£o dos Institutos Federais ', 'http://www.csbc2016.com.br/', 1, 1, 0, 0, 1, 1, 7, 3, '2016-03-16 17:48:23', 240, 735, 81),
+(19, '2025504', 'CONGRESSO BRASILEIRO DE ASSISTENTES SOCIAIS', 'RECIFE', '2016-09-05', '2016-09-09', 0, '  O evento Ã© o mais importante da categoria de assistentes sociais e sÃ³ acontece a cada trÃªs anos. Promove a capacitaÃ§Ã£o/aperfeiÃ§oamento da prÃ¡tica profissional por meio de palestras, oficinas e minicursos escolhidos no ato da inscriÃ§Ã£o. ', 'http://www.cbas2016.com.br/', 1, 0, 0, 2, 0, 1, 6, 2, '2016-03-17 08:52:17', 600, 945, 69),
+(21, '1200329', '3Âº CIMODE - Congresso Internacional de Moda e Design', 'Buenos Aires/Argentina', '0000-00-00', '0000-00-00', 1454, 'Artigo aceito para comunicaÃ§Ã£o oral. ', 'http://www.design.uminho.pt/cimode2016/pt-PT/default.rhtml', 1, 0, 0, 0, 0, 1, 1, 4, '2016-03-17 10:21:04', 260, 315, 64),
+(22, '1996988', 'Congresso Brasileiro de QuÃ­mica -CBQ', 'BelÃ©m/PA', '2016-11-07', '2016-11-11', 900, '  ApresentaÃ§Ã£o de trabalho referente aos resultados obtidos no projeto de extensÃ£o desenvolvido no segundo semestre de 2015. ', 'http://www.abq.org.br/cbq/index.html', 0, 0, 0, 2, 0, 2, 1128, 3, '2016-03-17 13:21:50', 486, 945, 58),
+(23, '1888388', 'ElaboraÃ§Ã£o de Projeto BÃ¡sico e Termo de ReferÃªncia', 'Natal/RN', '2016-05-31', '2016-06-03', 0, ' Com o objetivo de tornar mais eficiente o sistema de licitaÃ§Ã£o no Campus, diminuindo a necessidade em realizar carona em pregÃµes que nÃ£o atendem nossa demanda especÃ­fica. ', 'http://www.consultre.com.br/curso/elaboracao-do-projeto-basico-e-termo-de-referencia', 0, 0, 0, 1, 0, 1, 9, 8, '2016-03-17 15:19:45', 2490, 735, 63),
+(24, '2072657', 'Curso Completo: LicitaÃ§Ãµes e contratos, Registro de PreÃ§o e PregÃ£o', 'Natal RN', '2016-11-21', '2016-11-25', 0, ' AperfeiÃ§oamento na Ã¡rea de trabalho', '', 0, 0, 0, 0, 0, 1, 1, 3, '2016-03-18 10:38:03', 2980, 945, 56),
+(25, '1956341', 'Curso de SaÃºde e SeguranÃ§a no Trabalho', 'Natal/RN/BR', '2016-04-04', '2016-04-10', 0, '  Conhecer os riscos de acidentes e doenÃ§as ocupacionais e estratÃ©gias preventivas para minimizar os riscos ambientais no trabalho e circunvizinhanÃ§a Ã© algo que todo cidadÃ£o deveria saber. Assim, a capacitaÃ§Ã£o Ã© o pontapÃ© inicial para esses conhecimentos. O curso seÅ•a realizado em dias quebrados sendo 04/04,05/04,11/04,12/04,18/04,19/04', 'https://webmail.ifrn.edu.br/owa/#path=/mail', 1, 0, 0, 2, 0, 0, 7, 0, '2016-03-18 12:29:49', 0, 1365, 83),
+(26, '1957598', 'CONTABILIDADE PÃšBLICA', 'FORTALEZA/CE/BRASIL', '0000-00-00', '0000-00-00', 0, '  O curso Ã© relevante porque visa o aperfeiÃ§oamento das atividades que vÃªm sendo desenvolvidas no setor. ', 'http://www.esafi.com.br/', 0, 1, 0, 1, 0, 1, 5, 2, '2016-03-18 14:24:32', 2490, 105, 72),
+(28, '1045649', 'Jean Carlos Dias Ferreira', 'Campinas-SP', '2016-06-29', '2016-07-01', 800, 'ApresentaÃ§Ã£o de um projeto de extensÃ£o realizado aqui na instituiÃ§Ã£o com respeito a temÃ¡tica do evento. ', 'anpoll.org.br', 1, 1, 1, 0, 0, 1, 1, 0, '2016-03-18 15:04:29', 200, 525, 83),
+(29, '1694728', 'FEBRATEX', 'Blumenal-SC', '2016-08-09', '2016-08-12', 527, '  ParticipaÃ§Ã£o da Feira Brasileira para a IndÃºstria TÃªxtil. Visualizar novos equipamentos de empresas fabricantes, palestras de profissionais de varios segmentos da cadeia tÃªxtil e de manufatura de uma forma geral. ', 'http://www.febratex.com.br/inicio', 1, 0, 0, 2, 0, 1, 6, 8, '2016-03-18 15:06:35', 564, 735, 63),
+(30, '1045649', 'Jean Carlos Dias Ferreira', 'FlorianÃ³polis-SC', '2016-11-28', '2016-12-02', 1200, ' ApresentaÃ§Ã£o de 02 trabalhos cientÃ­ficos realizados na instituiÃ§Ã£o IFRN Campus/CaicÃ³', 'www.congressotils.com.br', 1, 1, 1, 0, 0, 1, 1, 0, '2016-03-18 15:20:46', 300, 945, 83),
+(31, '1857698', 'FEBRATEX - Feira brasileira para industria tÃªxtil', 'Blumenau - SC', '2016-08-09', '2016-08-12', 1409, ' Estreitar as relaÃ§Ãµes entre escola e empresas atravÃ©s de contatos com as empresas que participam da feira. E conhecer novos equipamentos que estÃ£o no mercado. ', 'http://www.febratex.com.br/inicio', 1, 1, 0, 1, 0, 1, 4, 3, '2016-03-18 16:08:56', 0, 735, 68),
+(32, '2152373', 'Cerimonial, protocolo e organizaÃ§Ã£o de eventos solenes pÃºblicos', 'Recife/PE/Brasil', '2016-08-24', '2016-08-26', 366, '  Como Coordenadora de ComunicaÃ§Ã£o Social e Eventos, sou responsÃ¡vel pelo planejamento dos eventos solenes no campus, como as formaturas, e vez que  nÃ£o tenho formaÃ§Ã£o nessa Ã¡rea, necessito de capacitaÃ§Ã£o para desempenhar essa funÃ§Ã£o do modo mais satisfatÃ³rio possÃ­vel. ', 'www.consultre.me/orgeventos', 0, 0, 0, 0, 0, 1, 3, 7, '2016-03-18 17:43:08', 2490, 525, 63),
+(33, '1045649', 'Jean Carlos Dias Ferreira', 'BrasÃ­lia-DF', '2016-09-14', '2016-09-16', 1000, '  ApresentaÃ§Ã£o do projeto de extensÃ£o do NAPNE Campus/CaicÃ³ no evento Nacional dos NAPNE''S', 'Em construÃ§Ã£o', 1, 1, 1, 0, 0, 1, 1, 0, '2016-03-18 17:56:23', 150, 525, 83),
+(34, '1045649', 'Jean Carlos Dias Ferreira', 'Fortaleza-CE', '2016-07-19', '2016-07-22', 0, 'ParticipaÃ§Ã£o do evento para agregar conhecimentos e valores na Ã¡rea de LIBRAS. ', '1eventosels.wix.com', 1, 1, 0, 0, 0, 1, 1, 0, '2016-03-18 18:01:01', 90, 735, 73),
+(35, '2133235', 'I encontro de EducaÃ§Ã£o FÃ­sica do IFRN', 'Paranamirim RN', '2016-06-03', '2016-06-05', 0, ' Evento realizado pelo NCE de EducaÃ§Ã£o FÃ­sica do IFRN que objetivarÃ¡ expandir as discussÃµes sobre as diferentes metodologias aplicadas a EducaÃ§Ã£o FÃ­sica escolar, e assim, contribuirÃ¡ diretamente para o fazer pedagÃ³gico em nosso campus.', '', 1, 0, 0, 0, 0, 1, 4, 7, '2016-03-20 21:06:31', 0, 525, 75),
+(36, '1734433', 'IV SEMINÃRIO NACIONAL DO ENSINO MÃ‰DIO - Ensino, Juventude e Diversidade na Escola PÃºblica / I ENCONTRO NACIONAL ENSINO E INTERDISCIPLINARIDADE NA ESCOLA PÃšBLICA', 'MossorÃ³/ RN/ Brasil', '0000-00-00', '0000-00-00', 0, ' â€œEste evento tem como propÃ³sito constituir-se  como um  espaÃ§o de discussÃµes e debates para os pesquisadores, os estudantes da graduaÃ§Ã£o e da pÃ³s-graduaÃ§Ã£o, os professores universitÃ¡rios e da educaÃ§Ã£o bÃ¡sica que atuam, pesquisam, refletem e problematizam o ensino mÃ©dio (agora ampliando, com o ENACEI, para todas as etapas do ensino pÃºblico), sendo este considerado lÃ³cus privilegiado de produÃ§Ã£o e apropriaÃ§Ã£o de conhecimentos e desenvolvimento de prÃ¡ticas educativas inovadoras. AlÃ©m disso, tais eventos pretendem, ainda, oportunizar um espaÃ§o de socializaÃ§Ã£o e publicizaÃ§Ã£o das pesquisas e produÃ§Ãµes recentes dos sujeitos pedagÃ³gicos (docentes e discentes), visando apontar  o percurso histÃ³rico, a atualidade, as percepÃ§Ãµes e as tranformaÃ§Ãµes  teÃ³ricas e prÃ¡ticas que envolvem a educaÃ§Ã£o e o ensino na escola pÃºblica.â€ Desse modo, constitui-se um evento relevante para nÃ³s, uma vez que publicaremos resultados oriundos do projeto de pesquisa â€œPrÃ¡ticas de Letramento Digital: o blog como estratÃ©gia pedagÃ³gica em aulas de lÃ­ngua inglesaâ€ realizado no campus CaicÃ³.\r\n\r\n', 'http://uern.br/eventos/senacem/default.asp?item=senacem-inicio', 1, 0, 1, 0, 1, 1, 2, 2, '2016-03-20 21:31:48', 50, 315, 69),
+(37, '1734433', 'VI CLAFPL â€“ Congresso Latino-Americano de FormaÃ§Ã£o de Professores de LÃ­nguas', 'Londrina/PR/Brasil', '0000-00-00', '0000-00-00', 1700, ' O evento serÃ¡ constituÃ­do por conferÃªncias, mesas-redondas, simpÃ³sios, sessÃµes de comunicaÃ§Ãµes coordenadas e individuais, alÃ©m de sessÃµes de pÃ´steres, que contarÃ£o com nomes representativos da Ã¡rea de formaÃ§Ã£o de professores do Brasil e do exterior. Assim, eventos como este oportunizam a nÃ³s, professores-pesquisadores, um espaÃ§o de socializaÃ§Ã£o e publicizaÃ§Ã£o das pesquisas e produÃ§Ãµes recentes, alÃ©m do conhecimento de outras pesquisas e experiÃªncias em sala de aula. ', 'http://www.viclafpl.com.br/pt/apresentacao/', 1, 0, 1, 0, 1, 1, 2, 1, '2016-03-20 21:50:03', 150, 500, 70),
+(38, '1734433', 'International Conference on Information, Communication Technologies in Education', 'Rhodes/ GrÃ©cia', '0000-00-00', '0000-00-00', 2800, ' O presente congresso objetiva apresentar as tecnolÃ³gicas aplicadas na educaÃ§Ã£o, visando o compartilhamento de experiÃªncias Ã  nÃ­vel internacional das TICs em sala de aula. Desse modo, constitui-se um evento relevante para nÃ³s, uma vez que publicaremos resultados oriundos do projeto de pesquisa â€œPrÃ¡ticas de Letramento Digital: o blog como estratÃ©gia pedagÃ³gica em aulas de lÃ­ngua inglesaâ€ realizado no campus CaicÃ³.', 'http://www.icicte.org/', 1, 0, 1, 0, 1, 1, 2, 5, '2016-03-20 22:11:44', 1500, 525, 64),
+(39, '1734433', 'III CONGRESSO NACIONAL DE EDUCAÃ‡ÃƒO (CONEDU)', 'NATAL/RN/BRASIL', '0000-00-00', '0000-00-00', 0, ' Eventos como este oportunizam a nÃ³s, professores-pesquisadores, um espaÃ§o de socializaÃ§Ã£o e publicizaÃ§Ã£o das pesquisas e produÃ§Ãµes recentes na Ã¡rea de EducaÃ§Ã£o, alÃ©m do conhecimento de outras pesquisas e experiÃªncias em sala de aula. ', 'http://www.conedu.com.br/index.php', 1, 0, 1, 0, 1, 1, 2, 2, '2016-03-20 22:23:03', 95, 315, 69),
+(40, '1734433', '4Âº COLÃ“QUIO INTERNACIONAL DE ESTUDOS LINGUÃSTICOS E LITERÃRIOS â€“ CIELLI', 'MaringÃ¡/PR/Brasil', '0000-00-00', '0000-00-00', 1010, ' Eventos como este oportunizam a nÃ³s, professores-pesquisadores, um espaÃ§o de socializaÃ§Ã£o e publicizaÃ§Ã£o das pesquisas e produÃ§Ãµes recentes na Ã¡rea de EducaÃ§Ã£o, alÃ©m do conhecimento de outras pesquisas e experiÃªncias em sala de aula. ', 'http://cielli2016.blogspot.com.br/p/blog-page.html', 1, 0, 1, 0, 1, 1, 2, 1, '2016-03-20 22:30:36', 150, 1500, 70);
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `usuario`
+--
+
+CREATE TABLE IF NOT EXISTS `usuario` (
+  `usuario` varchar(7) NOT NULL,
+  `tipo_usuario` tinyint(1) NOT NULL default '0',
+  PRIMARY KEY  (`usuario`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+--
+-- Extraindo dados da tabela `usuario`
+--
+
+INSERT INTO `usuario` (`usuario`, `tipo_usuario`) VALUES
+('1935921', 1);
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `usuario_login`
+--
+
+CREATE TABLE IF NOT EXISTS `usuario_login` (
+  `id` int(11) NOT NULL,
+  `usuario` varchar(7) NOT NULL,
+  `data_login` datetime NOT NULL,
+  PRIMARY KEY  (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+--
+-- Extraindo dados da tabela `usuario_login`
+--
+

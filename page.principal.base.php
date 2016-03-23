@@ -9,18 +9,12 @@
         <p>E-mail:copein.ca@ifrn.edu.br</p>
         <p>Telefone:(84) 4005-4102 (ramal 6008)</p>
 
-   </div>
+    </div>
 </footer>
 </div>
 </div>
-
-<script>
-    $.material.init();
-</script>
-
-<script>
-    $("#dropdown-menu select").dropdown();
-</script>
+<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/js/materialize.min.js"></script>
 
 
 </body>

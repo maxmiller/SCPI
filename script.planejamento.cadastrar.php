@@ -6,13 +6,35 @@
  * Time: 18:00
  */
 
-include 'database.php';
-include 'auxiliar.php';
+include_once 'class.planejamentodao.php';
+
+use \IFRN\PlanejamentoDao;
 
 
 session_start();
 
-print_r($_POST);
+//print_r($_POST);
+try {
+    $dao = new PlanejamentoDao();
+    if($_POST['id']=="") {
+        $dao->save($_POST);
+        echo "<script>
+         alert(\"Planejamento Cadastrado com sucesso\");
+         window.location='page.planejamento.principal.php';
+        </script>";
+    }else{
+        $dao->update($_POST);
+        echo "<script>
+         alert(\"Planejamento Atualizado com sucesso\");
+         window.location='page.planejamento.principal.php';
+        </script>";
+    }
+   
+} catch (Exception $e) {
+
+    echo $e->getMessage();
+
+}
 /*
 if (isset($_SESSION["siape"])) {
     $nome_evento = $_POST['nome_evento'];

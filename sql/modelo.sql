@@ -102,3 +102,6 @@ MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=14;
 
 ALTER TABLE planejamento ADD COLUMN status int(2) AFTER total_pontos;
 UPDATE planejamento set status = 0;
+
+ALTER TABLE planejamento ADD COLUMN status int(2) AFTER prioridade;
+UPDATE planejamento set prioridade = 0;
