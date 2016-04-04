@@ -46,6 +46,30 @@ class PlanejamentoDao extends Dao
         }
     }
 
+    function aprovar($object)
+    {
+        $sql = "UPDATE planejamento SET status = '2'  where id = $object ";
+
+        echo $sql;
+        try {
+            $stmt = Conexao::getInstance()->prepare($sql);
+            $stmt->execute();
+        } catch (PDOException $e) {
+            throw $e;
+        }
+    }
+    function rejeitar($object)
+    {
+        $sql = "UPDATE planejamento SET status = '1'  where id = $object ";
+
+        //  echo $sql;
+        try {
+            $stmt = Conexao::getInstance()->prepare($sql);
+            $stmt->execute();
+        } catch (PDOException $e) {
+            throw $e;
+        }
+    }
     function delete($object)
     {
         try {
@@ -75,7 +99,7 @@ class PlanejamentoDao extends Dao
     function findAll()
     {
         $stmt = Conexao::getInstance()->prepare('
-            SELECT  planejamento.* FROM planejamento
+            SELECT  planejamento.*, servidor.nome FROM planejamento,servidor where planejamento.siape = servidor.siape order by siape,prioridade
         ');
         $stmt->execute();
         $stmt->setFetchMode(PDO::FETCH_CLASS, 'Planejamento');

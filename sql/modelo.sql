@@ -105,3 +105,18 @@ UPDATE planejamento set status = 0;
 
 ALTER TABLE planejamento ADD COLUMN status int(2) AFTER prioridade;
 UPDATE planejamento set prioridade = 0;
+
+
+
+DROP TABLE IF EXISTS `servidor`;
+CREATE TABLE IF NOT EXISTS `servidor` (
+  `siape` varchar(7) NOT NULL,
+  `nome` varchar(200) NOT NULL,
+  `email` varchar(200) NOT NULL
+
+) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8;
+
+ALTER TABLE `servidor`
+ADD PRIMARY KEY (`siape`);
+
+ALTER TABLE planejamento ADD CONSTRAINT planejamento_servidor FOREIGN KEY (siape) REFERENCES servidor(siape);

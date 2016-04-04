@@ -33,6 +33,33 @@ class Planejamento
     protected $siape;
     protected $status;
     protected $prioridade;
+    protected $nome;
+
+
+    function __construct($array = null)
+    {
+        if ($array != null) {
+            foreach ($array as $k => $v) {
+                $this->{$k} = $v;
+            }
+        }
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getNome()
+    {
+        return $this->nome;
+    }
+
+    /**
+     * @param mixed $nome
+     */
+    public function setNome($nome)
+    {
+        $this->nome = $nome;
+    }
 
     /**
      * @return mixed
@@ -65,16 +92,6 @@ class Planejamento
     public function setStatus($status)
     {
         $this->status = $status;
-    }
-
-
-    function __construct($array=null)
-    {
-        if($array!=null){
-            foreach ($array as $k=> $v) {
-                $this->{$k} = $v;
-            }
-        }
     }
 
 
@@ -398,7 +415,9 @@ class Planejamento
         $this->siape = $siape;
     }
 
-    public function getTipoEventoTexto(){
+
+    public function getTipoEventoTexto()
+    {
         $evento = null;
         switch ($this->tipo_evento_capacitacao) {
             case 0:
@@ -435,8 +454,31 @@ class Planejamento
         return $evento;
     }
 
-    public function getTotalRecurso(){
-        return $this->calcular_diarias()+$this->valor_passagem+$this->inscricao;
+
+    public function getTitulacaoTexto()
+    {
+        $evento = null;
+        switch ($this->titulacao) {
+            case 0:
+                $evento = "Até Graduação";
+                break;
+            case 1:
+                $evento = "Especialização/Mestrado";
+                break;
+            case 2:
+                $evento = "Doutorado/Pós-Doutorado";
+                break;
+
+            default:
+                $evento = "Indefinido";
+                break;
+        }
+        return $evento;
+    }
+
+    public function getTotalRecurso()
+    {
+        return $this->calcular_diarias() + $this->valor_passagem + $this->inscricao;
     }
 
 
@@ -447,13 +489,14 @@ class Planejamento
         // $d2 = new DateTime($data_inicio);
 
         $diff = abs(strtotime($this->data_fim_evento) - strtotime($this->data_inicio_evento));
-        $years = floor($diff / (365*60*60*24));
-        $months = floor(($diff - $years * 365*60*60*24) / (30*60*60*24));
-        $days = floor(($diff - $years * 365*60*60*24 - $months*30*60*60*24) / (60*60*24));
+        $years = floor($diff / (365 * 60 * 60 * 24));
+        $months = floor(($diff - $years * 365 * 60 * 60 * 24) / (30 * 60 * 60 * 24));
+        $days = floor(($diff - $years * 365 * 60 * 60 * 24 - $months * 30 * 60 * 60 * 24) / (60 * 60 * 24));
         $dias = $days + 0.5;
 
         switch ($this->tipo_evento_capacitacao) {
-            case 1:
+            case 4:
+            case 5:
                 $valor = 250 * 4.00 * $dias;
                 break;
             default:
@@ -461,6 +504,25 @@ class Planejamento
                 break;
         }
         return $valor;
+    }
+
+    public function verificar_status()
+    {
+        $status = null;
+        switch ($this->status) {
+            case 0:
+                $status = "Não avaliado";
+                break;
+            case 1:
+                $status = "Rejeitado";
+                break;
+            case 2:
+                $status = "Aprovado";
+                break;
+            default:
+                break;
+        }
+        return $status;
     }
 
     public function calcular_pontos()
@@ -515,12 +577,50 @@ class Planejamento
                 break;
         }
         $total_pontos = $total_pontos + ($this->tempo_servico >= 8 ? (8 * 2.5) : ($this->tempo_servico * 2.5));
-        $total_pontos = $total_pontos + ($this->numero_evento_nacional== 0 ? 15 : (10 / $this->numero_evento_nacionall));
-        $total_pontos = $total_pontos + ($this->numero_evento_internacional== 0 ? 15 : (10 / ($this->numero_evento_internacional * 2)));
+        $total_pontos = $total_pontos + ($this->numero_evento_nacional == 0.0 ? 15 : (10 / $this->numero_evento_nacional));
+        $total_pontos = $total_pontos + ($this->numero_evento_internacional == 0 ? 15 : (10 / ($this->numero_evento_internacional * 2)));
         return $total_pontos;
 
     }
 
+
+    public function getPontosEventos()
+    {
+        $total_pontos = 0;
+        switch ($this->tipo_evento_capacitacao) {
+            case 0:
+                $total_pontos = $total_pontos + 15.0;
+                break;
+            case 1:
+                $total_pontos = $total_pontos + 10.0;
+                break;
+            case 2:
+                $total_pontos = $total_pontos + 09.0;
+                break;
+            case 3:
+                $total_pontos = $total_pontos + 08.0;
+                break;
+            case 4:
+                $total_pontos = $total_pontos + 06.0;
+                break;
+            case 5:
+                $total_pontos = $total_pontos + 04.0;
+                break;
+            case 6:
+                $total_pontos = $total_pontos + 04.0;
+                break;
+            case 7:
+                $total_pontos = $total_pontos + 10.0;
+                break;
+            case 8:
+                $total_pontos = $total_pontos + 03.0;
+                break;
+
+            default:
+                break;
+        }
+        return $total_pontos;
+    }
 
 
 }

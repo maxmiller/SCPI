@@ -31,6 +31,13 @@
 
     <script src="https://cdn.rawgit.com/FezVrasta/dropdown.js/master/jquery.dropdown.js"></script>
 
+    <script language="JavaScript">
+      //  alert(navigator.userAgent)
+        if (navigator.userAgent.indexOf("Chrome") == -1) { // Chorme
+            alert("Por favor user o Google Chrome!");
+        }
+    </script>
+
 </head>
 <body>
 

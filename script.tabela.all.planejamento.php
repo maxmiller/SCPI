@@ -6,7 +6,7 @@ use \IFRN\PlanejamentoDAO;
 
 try {
     $dao = new PlanejamentoDAO();
-    $data = $dao->findBySiape($siape);
+    $data = $dao->findAll($siape);
 
 } catch (Exception $e) {
     echo $e->getMessage();
@@ -27,13 +27,18 @@ foreach ($data as $row) {
         echo "<tr class='danger'> ";
 
     }elseif ( $planejamento->getStatus()==2){
+        $total_pasagens_aprovadas += $planejamento->getValorPassagem();
+        $total_diarias_aprovadas += $planejamento->calcular_diarias();
+        $total_inscricao_aprovada += $planejamento->getInscricao();
         echo "<tr class='success'> ";
 
     }
 
     echo "<td>{$planejamento->getPrioridade()}</td>";
     echo "<td>{$planejamento->getSiape()}</td>";
+    echo "<td>{$planejamento->getNome()}</td>";
     echo "<td>{$planejamento->getNomeEvento()}</td>";
+    echo "<td>{$planejamento->getJustificativaEventoRelevancia()}</td>";
     echo "<td>{$planejamento->getCidadeEvento()}</td>";
     echo "<td>$inicio</td>";
     echo "<td>$fim</td>";
@@ -43,8 +48,9 @@ foreach ($data as $row) {
     echo "<td> R$ {$planejamento->getInscricao()}</td>";
     echo "<td> R$ {$planejamento->getTotalRecurso()}</td>";
     echo "<td>{$planejamento->calcular_pontos()}</td>";
-    echo "<td><a href='page.planejamento.editar.php?id={$planejamento->getId()}'  ><i class='glyphicon glyphicon-edit'></i></a></td>";
-    echo "<td><a href='script.planejamento.excluir.php?id={$planejamento->getId()}' onclick='return confirm(\'Deseja excluir\')' ><i class='glyphicon glyphicon-trash'></i></a></td>";
+    echo "<td>{$planejamento->verificar_status()}</td>";
+    echo "<td><a href='script.planejamento.aprovar.php?id={$planejamento->getId()}'  ><i class='glyphicon glyphicon-ok'></i></a></td>";
+    echo "<td><a href='script.planejamento.rejeitar.php?id={$planejamento->getId()}' onclick='return confirm(\'Deseja rejeitar\')' ><i class='glyphicon glyphicon-remove'></i></a></td>";
 
     echo "</tr> ";
 

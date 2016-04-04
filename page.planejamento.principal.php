@@ -5,7 +5,7 @@ include 'topo.php';
 if (!isset($_SESSION["siape"])) {
     echo "<script>
         alert('Usuário não logado');
-        window.location=(ppage.login.php </script>";
+        window.location='page.login.php' </script>";
 }
 $siape = $_SESSION['siape'];
 

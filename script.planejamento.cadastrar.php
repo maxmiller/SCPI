@@ -16,7 +16,7 @@ session_start();
 //print_r($_POST);
 try {
     $dao = new PlanejamentoDao();
-    if($_POST['id']=="") {
+    if($_POST['id']=="" ||$_POST['id']== 0 || $_POST['id']=="0") {
         $dao->save($_POST);
         echo "<script>
          alert(\"Planejamento Cadastrado com sucesso\");
