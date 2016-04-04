@@ -120,3 +120,100 @@ ALTER TABLE `servidor`
 ADD PRIMARY KEY (`siape`);
 
 ALTER TABLE planejamento ADD CONSTRAINT planejamento_servidor FOREIGN KEY (siape) REFERENCES servidor(siape);
+
+DROP TABLE IF EXISTS `requisicao_materiais`;
+CREATE TABLE IF NOT EXISTS `requisicao_materiais` (
+  `id` int(11) NOT NULL,
+  `siape` varchar(7) NOT NULL,
+  `material` varchar(200) NOT NULL,
+  `especificacao` varchar(5000) NOT NULL,
+  `empresa_um` varchar(500) NOT NULL,
+  `cnpj_um` varchar(14) NOT NULL,
+  `preco_um` decimal(10,2) NOT NULL,
+  `site_um` varchar(100) ,
+  `anexo_um` varchar(200) ,
+
+  `empresa_dois` varchar(500) NOT NULL,
+  `cnpj_dois` varchar(14) NOT NULL,
+  `preco_dois` decimal(10,2) NOT NULL,
+  `site_dois` varchar(100) ,
+  `anexo_dois` varchar(200) ,
+
+  `empresa_tres` varchar(500) NOT NULL,
+  `cnpj_tres` varchar(14) NOT NULL,
+  `preco_tres` decimal(10,2) NOT NULL,
+  `site_tres` varchar(100) ,
+  `anexo_tres` varchar(200) ,
+  `status` integer default 0
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
+
+ALTER TABLE requisicao_materiais ADD CONSTRAINT requisicao_materiais_servidor FOREIGN KEY (siape) REFERENCES servidor(siape);
+
+ALTER TABLE copeinca.requisicao_materiais DROP COLUMN anexo_dois;
+
+ALTER TABLE copeinca.requisicao_materiais DROP COLUMN anexo_tres;
+
+ALTER TABLE copeinca.requisicao_materiais DROP COLUMN anexo_um;
+
+ALTER TABLE copeinca.requisicao_materiais DROP COLUMN cnpj_dois;
+
+ALTER TABLE copeinca.requisicao_materiais DROP COLUMN cnpj_tres;
+
+ALTER TABLE copeinca.requisicao_materiais DROP COLUMN cnpj_um;
+
+ALTER TABLE copeinca.requisicao_materiais DROP COLUMN empresa_dois;
+
+ALTER TABLE copeinca.requisicao_materiais DROP COLUMN empresa_tres;
+
+ALTER TABLE copeinca.requisicao_materiais DROP COLUMN empresa_um;
+
+ALTER TABLE copeinca.requisicao_materiais DROP COLUMN preco_dois;
+
+ALTER TABLE copeinca.requisicao_materiais DROP COLUMN preco_tres;
+
+ALTER TABLE copeinca.requisicao_materiais DROP COLUMN preco_um;
+
+ALTER TABLE copeinca.requisicao_materiais DROP COLUMN site_dois;
+
+ALTER TABLE copeinca.requisicao_materiais DROP COLUMN site_tres;
+
+ALTER TABLE copeinca.requisicao_materiais DROP COLUMN site_um;
+
+ALTER TABLE copeinca.requisicao_materiais ADD PRIMARY KEY (id);
+
+CREATE TABLE copeinca.requisicao_material_item (
+  id INT NOT NULL,
+  nome_empresa VARCHAR(200) NOT NULL,
+  cnpj VARCHAR(14) NOT NULL,
+  id_requisicao INT NOT NULL,
+  preco DECIMAL(10,2) NOT NULL,
+  site VARCHAR(200),
+  anexo VARCHAR(250) NOT NULL,
+  PRIMARY KEY (id)
+);
+
+
+ALTER TABLE copeinca.requisicao_material_item ADD CONSTRAINT requisicao_materiais_requisicao_material_item_fk
+FOREIGN KEY (id_requisicao)
+REFERENCES copeinca.requisicao_materiais (id)
+  ON DELETE NO ACTION
+  ON UPDATE NO ACTION;
+
+ALTER TABLE copeinca.login_sistema ADD CONSTRAINT servidor_login_sistema_fk
+FOREIGN KEY (siape)
+REFERENCES copeinca.servidor (siape)
+  ON DELETE NO ACTION
+  ON UPDATE NO ACTION;
+
+
+
+ALTER TABLE copeinca.requisicao_materiais ADD COLUMN tipo INT NOT NULL AFTER status;
+
+ALTER TABLE copeinca.requisicao_materiais ADD COLUMN observacao VARCHAR(5000) NOT NULL AFTER tipo;
+
+ALTER TABLE copeinca.requisicao_materiais ADD COLUMN quantidade INT NOT NULL AFTER observacao;
+
+ALTER TABLE copeinca.requisicao_materiais ADD COLUMN finalidade VARCHAR(1000) NOT NULL AFTER quantidade;
+
+
+
